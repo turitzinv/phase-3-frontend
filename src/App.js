@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
 import NavBar from "./components/NavBar";
 import { Route, Switch } from "react-router-dom"
 import Home from "./components/Home";
@@ -6,6 +6,13 @@ import LibraryList from "./components/LibraryList";
 import CreateNewBook from "./components/CreateNewBook";
 
 function App() {
+  const [allLibraries, setLibraries] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:9292/libraries")
+    .then((resp) => resp.json())
+    .then((libraries) => setLibraries(libraries));
+  }, []);
 
   return (
     <div>
@@ -15,7 +22,9 @@ function App() {
           <Home />
         </Route>
         <Route path ="/librarylist">
-          <LibraryList />
+          <LibraryList 
+          allLibraries = {allLibraries}
+          />
         </Route>
         <Route path="/createnewbook">
           <CreateNewBook />
