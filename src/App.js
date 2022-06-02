@@ -11,6 +11,8 @@ function App() {
   const [allBooks, setBooks] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState("All")
 
+
+
   const genreList = allLibraries.map((library) => {
     return library.genre
   })
@@ -42,11 +44,13 @@ function App() {
     setSelectedGenre(event.target.value)
   }
 
-  //function filteredBooks() {
-  // if (selectedGenre === "All") {
-  //    return allBooks
-  //  } else if (selectedGenre === 1)
-  // }
+  function filteredBooks() {
+   if (selectedGenre === "All") {
+      return allBooks
+    } else {
+      return allBooks.filter((book) => book.library.genre === selectedGenre)
+    }
+  }
 
   return (
     <div>
@@ -58,7 +62,7 @@ function App() {
         <Route path ="/librarylist">
           <LibraryList 
           allLibraries = {allLibraries}
-          allBooks = {allBooks}
+          allBooks = {filteredBooks()}
           displayGenreList={displayGenreList}
           handleSelectGenre={handleSelectGenre}
           selectedGenre={selectedGenre}

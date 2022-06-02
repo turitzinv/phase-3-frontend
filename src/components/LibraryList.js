@@ -18,6 +18,7 @@ function LibraryList({ allLibraries, allBooks, displayGenreList, handleSelectGen
     author={book.author}
     year={book.year}
     read={book.read}
+    genre={book.library.genre}
     />
   ))
 
@@ -44,6 +45,7 @@ function LibraryList({ allLibraries, allBooks, displayGenreList, handleSelectGen
           <th>Title</th>
           <th>Author</th>
           <th>Year</th>
+          <th>Genre</th>
           <th>Read?</th>
         </tr>
         </thead>
