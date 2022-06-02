@@ -9,6 +9,22 @@ import CreateNewBook from "./components/CreateNewBook";
 function App() {
   const [allLibraries, setLibraries] = useState([]);
   const [allBooks, setBooks] = useState([]);
+  const [selectedGenre, setSelectedGenre] = useState("All")
+
+  const genreList = allLibraries.map((library) => {
+    return library.genre
+  })
+
+  let uniqueGenreList = ["All"]
+  genreList.forEach((genre) => {
+    if (!uniqueGenreList.includes(genre)) {
+      uniqueGenreList.push(genre)
+    }
+  });
+
+  const displayGenreList = uniqueGenreList.map((category, index) => {
+    return <option key={index}>{category}</option>
+  })
 
   useEffect(() => {
     fetch("http://localhost:9292/libraries")
@@ -22,6 +38,16 @@ function App() {
     .then((books) => setBooks(books))
   }, []);
 
+  function handleSelectGenre(event){
+    setSelectedGenre(event.target.value)
+  }
+
+  //function filteredBooks() {
+  // if (selectedGenre === "All") {
+  //    return allBooks
+  //  } else if (selectedGenre === 1)
+  // }
+
   return (
     <div>
       <NavBar />
@@ -33,6 +59,9 @@ function App() {
           <LibraryList 
           allLibraries = {allLibraries}
           allBooks = {allBooks}
+          displayGenreList={displayGenreList}
+          handleSelectGenre={handleSelectGenre}
+          selectedGenre={selectedGenre}
           />
         </Route>
         <Route path="/createnewbook">
