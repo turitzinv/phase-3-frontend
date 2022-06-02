@@ -12,7 +12,6 @@ function App() {
   const [selectedGenre, setSelectedGenre] = useState("All")
 
 
-
   const genreList = allLibraries.map((library) => {
     return library.genre
   })
@@ -52,6 +51,10 @@ function App() {
     }
   }
 
+  function handleAddingBook(newBook) {
+    setBooks([...allBooks, newBook])
+  }
+
   return (
     <div>
       <NavBar />
@@ -69,7 +72,9 @@ function App() {
           />
         </Route>
         <Route path="/createnewbook">
-          <CreateNewBook />
+          <CreateNewBook 
+          onAddingBook={handleAddingBook}
+          />
         </Route>
         <Route path="/*">
           <h1>404 use valid url</h1>
