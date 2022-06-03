@@ -55,6 +55,15 @@ function App() {
     setBooks([...allBooks, newBook])
   }
 
+  function handleAddingLibrary(newLibrary) {
+    setLibraries([...allLibraries, newLibrary])
+  }
+
+  function handleDeleteBook(deletedBook) {
+    const updatedBooks = allBooks.filter((book) => book.id !== deletedBook.id);
+    setBooks(updatedBooks)
+  }
+
   return (
     <div>
       <NavBar />
@@ -69,6 +78,8 @@ function App() {
           displayGenreList={displayGenreList}
           handleSelectGenre={handleSelectGenre}
           selectedGenre={selectedGenre}
+          handleDeleteBook={handleDeleteBook}
+          handleAddingLibrary={handleAddingLibrary}
           />
         </Route>
         <Route path="/createnewbook">

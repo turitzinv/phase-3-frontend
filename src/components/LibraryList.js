@@ -2,8 +2,9 @@ import React from "react";
 import LibraryCard from "./LibraryCard";
 import BookCard from "./BookCard";
 import GenreSearch from "./GenreSearch";
+import CreateNewLibrary from "./CreateNewLibrary";
 
-function LibraryList({ allLibraries, allBooks, displayGenreList, handleSelectGenre, selectedGenre }) {
+function LibraryList({ allLibraries, allBooks, displayGenreList, handleSelectGenre, selectedGenre, handleDeleteBook, handleAddingLibrary }) {
   const fullLibraryList = allLibraries.map((library) => (
     <LibraryCard 
     key={library.id}
@@ -19,11 +20,14 @@ function LibraryList({ allLibraries, allBooks, displayGenreList, handleSelectGen
     year={book.year}
     read={book.read}
     genre={book.library.genre}
+    onDeleteBook={handleDeleteBook}
+    book={book}
     />
   ))
 
   return (
     <div>
+      <CreateNewLibrary onAddingLibrary={handleAddingLibrary} />
       <h1>Library List</h1>
       <table>
         <thead>
@@ -47,6 +51,7 @@ function LibraryList({ allLibraries, allBooks, displayGenreList, handleSelectGen
           <th>Year</th>
           <th>Genre</th>
           <th>Read?</th>
+          <th>Delete?</th>
         </tr>
         </thead>
         <tbody>{fullBookList}</tbody>

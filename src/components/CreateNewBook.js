@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-//NOTE!!! Form is not working yet, issue with Genre
+//NOTE!!! Form is not working yet
 
 function CreateNewBook({ onAddingBook }) {
   const [formData, setFormData] =useState({
@@ -29,7 +29,7 @@ function CreateNewBook({ onAddingBook }) {
         author: formData.author,
         year: formData.year,
         read: formData.read,
-        genre: formData.genre
+        library: formData.genre //needs to be fixed
         }),
       })
       .then((resp) =>resp.json())
