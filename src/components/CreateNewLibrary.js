@@ -31,10 +31,10 @@ function CreateNewLibrary({ onAddingLibrary }) {
   }
   
   return (
-  <div>
+  <div id="new_library">
     <h1>Create a New Library</h1>
       <form onSubmit={handleLibrarySubmit}>
-        <div className="input-field">
+        <div>
           <input 
           type="text" 
           name="genre" 
