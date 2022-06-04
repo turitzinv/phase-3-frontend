@@ -42,7 +42,7 @@ function CreateNewBook({ onAddingBook }) {
 
   return (
     <div>
-      <h1>Create New Book</h1>
+      <h1 id="create_new_book_h1">Create New Book</h1>
       <form id="form" onSubmit={handleSubmit}>
         <div className="input-field">
           <input 

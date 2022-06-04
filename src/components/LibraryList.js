@@ -30,8 +30,8 @@ function LibraryList({ allLibraries, allBooks, displayGenreList, handleSelectGen
   return (
     <div>
       <CreateNewLibrary onAddingLibrary={handleAddingLibrary} />
-      <h1>Library List</h1>
-      <table>
+      <h1 id="library_list_h1">Library List</h1>
+      <table id="library_list">
         <thead>
         <tr>
           <th>Select Library Genre</th>
@@ -44,8 +44,8 @@ function LibraryList({ allLibraries, allBooks, displayGenreList, handleSelectGen
         </thead>
         <tbody>{fullLibraryList}</tbody>
       </table>
-      <h1>Book List</h1>
-      <table>
+      <h1 id="book_list_h1">Book List</h1>
+      <table  id="book_table">
         <thead>
         <tr>
           <th>Title</th>

@@ -36,3 +36,41 @@ button {
   border-right: black solid 0.1rem;
   font-weight: bold
 }
+
+#home {
+  text-align: center;
+}
+
+#book_list_h1 {
+  text-align: center;
+}
+#library_list_h1 {
+  text-align: center
+}
+
+#create_new_book_h1 {
+  text-align: center;
+}
+
+#book_table {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid black;
+  border-spacing: 25px 10px
+}
+
+#library_list {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid black;
+  border-spacing: 25px 10px
+}
+
+
+
+
+
+
+
