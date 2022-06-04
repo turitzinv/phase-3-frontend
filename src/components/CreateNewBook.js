@@ -2,7 +2,7 @@ import React, { useState } from "react";
 //NOTE!!! Form is not working yet
 
 function CreateNewBook({ onAddingBook }) {
-  const [formData, setFormData] =useState({
+  const [formData, setFormData] = useState({
     title: "",
     author: "",
     year: "",
@@ -17,6 +17,7 @@ function CreateNewBook({ onAddingBook }) {
     })
   }
 
+
   function handleSubmit(event) {
     event.preventDefault();
     fetch("http://localhost:9292/books", {
@@ -29,13 +30,13 @@ function CreateNewBook({ onAddingBook }) {
         author: formData.author,
         year: formData.year,
         read: formData.read,
-        library: formData.genre //needs to be fixed
+        genre: formData.genre //needs to be fixed, because library_id missing?
         }),
       })
       .then((resp) =>resp.json())
       .then((newBook) => {
-        onAddingBook(newBook)
-        alert("Book Added!")
+        console.log(newBook)
+        //alert("Book Added!")
       })
   }
 

@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
-function BookCard({ title, author, year, read, genre, onDeleteBook, book }) {
-//need book.id fetch
+function BookCard({ title, author, year, read, genre, onDeleteBook, book, onUpdateBook }) {
+
   function handleDeleteClick() {
     fetch(`http://localhost:9292/books/${book.id}`, {
       method: "DELETE",
@@ -10,15 +10,29 @@ function BookCard({ title, author, year, read, genre, onDeleteBook, book }) {
     .then(() => onDeleteBook(book))
   }
 
+  function handleOnChange() {
+    fetch(`http://localhost:9292/books/${book.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        read: !book.read
+      }),
+    })
+    .then((resp) => resp.json())
+    .then((updatedBook) => onUpdateBook(updatedBook))
+  }
+
   return (
-    <tr>
-      <td>{title}</td>
-      <td>{author}</td>
-      <td>{year}</td>
-      <td>{genre}</td>
-      <td>{read}</td>
-      <td><button onClick={handleDeleteClick}>Delete</button></td>
-    </tr>
+      <tr>
+        <td>{title}</td>
+        <td>{author}</td>
+        <td>{year}</td>
+        <td>{genre}</td>
+        <td><input type="checkbox" checked={read} onChange={handleOnChange}></input></td>
+        <td><button onClick={handleDeleteClick}>Delete</button></td>
+      </tr>
   )
 }
 

@@ -64,6 +64,17 @@ function App() {
     setBooks(updatedBooks)
   }
 
+  function handleUpdateBook(updatedBook) {
+    const updatedBooks = allBooks.map((book) => {
+      if (book.id === updatedBook.id) {
+        return updatedBook
+      } else {
+        return book
+      }
+    })
+    setBooks(updatedBooks)
+  }
+
   return (
     <div>
       <NavBar />
@@ -80,6 +91,7 @@ function App() {
           selectedGenre={selectedGenre}
           handleDeleteBook={handleDeleteBook}
           handleAddingLibrary={handleAddingLibrary}
+          handleUpdateBook={handleUpdateBook}
           />
         </Route>
         <Route path="/createnewbook">

@@ -4,7 +4,7 @@ import BookCard from "./BookCard";
 import GenreSearch from "./GenreSearch";
 import CreateNewLibrary from "./CreateNewLibrary";
 
-function LibraryList({ allLibraries, allBooks, displayGenreList, handleSelectGenre, selectedGenre, handleDeleteBook, handleAddingLibrary }) {
+function LibraryList({ allLibraries, allBooks, displayGenreList, handleSelectGenre, selectedGenre, handleDeleteBook, handleAddingLibrary, handleUpdateBook }) {
   const fullLibraryList = allLibraries.map((library) => (
     <LibraryCard 
     key={library.id}
@@ -22,7 +22,9 @@ function LibraryList({ allLibraries, allBooks, displayGenreList, handleSelectGen
     genre={book.library.genre}
     onDeleteBook={handleDeleteBook}
     book={book}
+    onUpdateBook={handleUpdateBook}
     />
+
   ))
 
   return (
@@ -54,7 +56,9 @@ function LibraryList({ allLibraries, allBooks, displayGenreList, handleSelectGen
           <th>Delete?</th>
         </tr>
         </thead>
-        <tbody>{fullBookList}</tbody>
+        <tbody>
+          {fullBookList}
+        </tbody>
       </table>
     </div>
   );
