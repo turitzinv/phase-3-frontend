@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {useHistory} from "react-router-dom";
 //NOTE!!! Form is not working yet
 
 function CreateNewBook({ onAddingBook }) {
@@ -7,8 +8,10 @@ function CreateNewBook({ onAddingBook }) {
     author: "",
     year: "",
     read: "",
-    genre: ""
+    library: ""
   });
+
+  let history = useHistory()
 
   function handleChange(event) {
     setFormData({
@@ -30,13 +33,13 @@ function CreateNewBook({ onAddingBook }) {
         author: formData.author,
         year: formData.year,
         read: formData.read,
-        genre: formData.genre //needs to be fixed, because library_id missing?
+        library: formData.library
         }),
       })
       .then((resp) =>resp.json())
       .then((newBook) => {
-        console.log(newBook)
-        //alert("Book Added!")
+        onAddingBook(newBook)
+        history.push("/librarylist")
       })
   }
 
@@ -83,9 +86,9 @@ function CreateNewBook({ onAddingBook }) {
         <div className="input-field">
           <input 
           type="text" 
-          name="genre" 
+          name="library" 
           placeholder="Library Genre"
-          value={formData.genre}
+          value={formData.library}
           onChange={handleChange}
           />
         </div>
