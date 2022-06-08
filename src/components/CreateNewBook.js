@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import {useHistory} from "react-router-dom";
 //NOTE!!! Form is not working yet
 
-function CreateNewBook({ onAddingBook }) {
+function CreateNewBook({ onAddingBook, allLibraries, handleAddingLibrary }) {
   const [formData, setFormData] = useState({
     title: "",
     author: "",
     year: "",
-    read: "",
+    read: "false",
     library: ""
   });
 
@@ -32,13 +32,18 @@ function CreateNewBook({ onAddingBook }) {
         title: formData.title,
         author: formData.author,
         year: formData.year,
-        read: formData.read,
+        //read: formData.read,
         library: formData.library
         }),
       })
       .then((resp) =>resp.json())
       .then((newBook) => {
         onAddingBook(newBook)
+        //if (!allLibraries.includes(formData.library)) {
+        //  handleAddingLibrary(formData.library)
+        //} else {
+        // history.push("/librarylist")
+        //}
         history.push("/librarylist")
       })
   }
@@ -77,15 +82,6 @@ function CreateNewBook({ onAddingBook }) {
         <div className="input-field">
           <input 
           type="text" 
-          name="read" 
-          placeholder="Book Read?"
-          value={formData.read}
-          onChange={handleChange}
-          />
-        </div>
-        <div className="input-field">
-          <input 
-          type="text" 
           name="library" 
           placeholder="Library Genre"
           value={formData.library}
@@ -99,3 +95,13 @@ function CreateNewBook({ onAddingBook }) {
 }
 
 export default CreateNewBook;
+
+/*<div className="input-field">
+  <input 
+  type="text" 
+  name="read" 
+  placeholder="Book Read?"
+  value={formData.read}
+  onChange={handleChange}
+/>
+</div> */
