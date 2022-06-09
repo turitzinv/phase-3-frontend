@@ -1,6 +1,6 @@
 # Personal Library - Frontend
 
-Personal Library is an application that assists you in storing and organzing all of your books.
+Personal Library is an application that assists you in storing and organzing all of your books.  This is the frontend portion of the application.
 
 # Routes
 
