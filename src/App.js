@@ -97,8 +97,6 @@ function App() {
         <Route path="/createnewbook">
           <CreateNewBook 
           onAddingBook={handleAddingBook}
-          allLibraries={allLibraries}
-          handleAddingLibrary={handleAddingLibrary}
           />
         </Route>
         <Route path="/*">
