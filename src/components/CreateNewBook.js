@@ -81,7 +81,7 @@ function CreateNewBook({ onAddingBook }) {
           onChange={handleChange}
           />
         </div>
-        <button type="submit">Add Book</button>
+        <button type="submit" class="btn btn-dark">Add Book</button>
       </form>
     </div>
   );
