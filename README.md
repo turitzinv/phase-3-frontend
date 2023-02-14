@@ -32,4 +32,4 @@ Create New Book
 
 # Backend
 
-This application utilizes Sinatra and Active Record to support the React frontend.
+This application utilizes Sinatra and Active Record to support the React frontend. Click to view: https://github.com/turitzinv/phase-3-sinatra-react-project/tree/main/backend
