@@ -10,10 +10,14 @@ function LibraryCard({ genre, onDeleteGenre, libraries }) {
     .then(() => onDeleteGenre(libraries))
   }
 
+  console.log(libraries.books.length)
+
   return (
     <tr>
-      <td>{genre}</td>
-      <td><button onClick={handleDeleteClick}>Remove</button></td>
+      <th>{genre}</th>
+      {libraries.books.length < 1 ? (
+      <button onClick={handleDeleteClick}>Remove</button>
+      ): null}
     </tr>
   )
 }
