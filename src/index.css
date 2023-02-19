@@ -35,7 +35,9 @@ button {
   border-bottom: black solid 0.1rem;
   border-left: black solid 0.1rem;
   border-right: black solid 0.1rem;
-  font-weight: bold
+  font-weight: bold;
+  background-color: lightseagreen;
+  color: white;
 }
 
 #home {

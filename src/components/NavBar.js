@@ -3,12 +3,14 @@ import { NavLink } from "react-router-dom";
 
 const linkStyles = {
   display: "inline-block",
-  width: "150px",
+  width: "160px",
   padding: "12px",
   margin: "0 6px 6px",
   background: "lightseagreen",
   textDecoration: "none",
   color: "white",
+  fontWeight: "bold",
+  textAlign: "center"
 };
 
 function NavBar() {
