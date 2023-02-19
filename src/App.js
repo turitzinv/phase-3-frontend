@@ -64,6 +64,11 @@ function App() {
     setBooks(updatedBooks)
   }
 
+  function handleDeleteGenre(deletedGenre) {
+    const updatedGenres = allLibraries.filter((library) => library.id !== deletedGenre.id)
+    setLibraries(updatedGenres)
+  }
+
   function handleUpdateBook(updatedBook) {
     const updatedBooks = allBooks.map((book) => {
       if (book.id === updatedBook.id) {
@@ -92,6 +97,7 @@ function App() {
           handleDeleteBook={handleDeleteBook}
           handleAddingLibrary={handleAddingLibrary}
           handleUpdateBook={handleUpdateBook}
+          handleDeleteGenre={handleDeleteGenre}
           />
         </Route>
         <Route path="/createnewbook">
