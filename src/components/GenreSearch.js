@@ -2,15 +2,12 @@ import React from "react";
 
 function GenreSearch({ displayGenreList, handleSelectGenre, selectedGenre }) {
   return (
-    <div>
-      <select
-      value={selectedGenre} 
-      onChange={handleSelectGenre}
-      >
-      {displayGenreList}
+    <th>
+      <select value={selectedGenre} onChange={handleSelectGenre}>
+        {displayGenreList}
       </select>
-    </div>
-  )
+    </th>
+  );
 }
 
-export default GenreSearch
+export default GenreSearch;
